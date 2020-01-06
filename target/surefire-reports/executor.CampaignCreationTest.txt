@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: executor.CampaignCreationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 673.542 s <<< FAILURE! - in executor.CampaignCreationTest
+schCampaignCreation(executor.CampaignCreationTest)  Time elapsed: 663.729 s  <<< FAILURE!
+java.lang.NullPointerException
+	at executor.CampaignCreationTest.schCampaignCreation(CampaignCreationTest.java:70)
+

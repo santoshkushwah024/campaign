@@ -9,7 +9,8 @@ import utils.GlobalConfig;
 
 public class BcastUserCreationLoc extends GlobalConfig {
 	 public static String BcastUserName = prop.getProperty("BcastUserName");
-	public BcastUserCreationLoc(WebDriver driver) {
+	
+	 public BcastUserCreationLoc(WebDriver driver) {
 		GlobalConfig.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

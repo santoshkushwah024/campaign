@@ -7,6 +7,7 @@
       <class name="executor.VerifyAdminHomePageTest"/>
       <class name="executor.TabsVerificationTest"/>
       <class name="executor.BcastUserCreationTest"/>
+      <class name="executor.CampaignCreationTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

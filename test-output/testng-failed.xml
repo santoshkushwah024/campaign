@@ -7,7 +7,7 @@
         <methods>
           <include name="reports"/>
           <include name="closeBrowser"/>
-          <include name="campaignCreation"/>
+          <include name="schCampaignCreation"/>
         </methods>
       </class> <!-- executor.CampaignCreationTest -->
     </classes>
