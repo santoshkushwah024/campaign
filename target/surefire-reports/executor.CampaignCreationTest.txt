@@ -1,8 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: executor.CampaignCreationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 673.542 s <<< FAILURE! - in executor.CampaignCreationTest
-schCampaignCreation(executor.CampaignCreationTest)  Time elapsed: 663.729 s  <<< FAILURE!
-java.lang.NullPointerException
-	at executor.CampaignCreationTest.schCampaignCreation(CampaignCreationTest.java:70)
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 244.715 s <<< FAILURE! - in executor.CampaignCreationTest
+schCampaignCreation(executor.CampaignCreationTest)  Time elapsed: 0.271 s  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=79.0.3945.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'TDBLR-LTP-XX1', ip: '169.254.121.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.88, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\santosh\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:52632}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 17271ef3602d4179bb7c9ff6b3911e23
+*** Element info: {Using=xpath, value=//input[@type="submit"]}
+	at executor.CampaignCreationTest.schCampaignCreation(CampaignCreationTest.java:69)
 

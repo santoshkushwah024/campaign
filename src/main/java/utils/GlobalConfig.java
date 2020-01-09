@@ -23,6 +23,10 @@ public class GlobalConfig {
 	public static ExtentTest test;
 	public static ExtentReports report;
 	public static WebDriver driver;
+	public static XSSFWorkbook wb;
+	public static String sUsername;
+	public static String sPassword;
+	public static int RowNum;
 //Static Method to read the Properties file for Global Configurations
 	static {
 		prop = new Properties();
@@ -35,17 +39,30 @@ public class GlobalConfig {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+//Method to Fetch the data from Excel Work Book
+	}
+	static {
+		String FilePath = System.getProperty("user.dir") + "\\users.xlsx";
+		FileInputStream fs = null;
+		try {
+			fs = new FileInputStream(FilePath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			wb = new XSSFWorkbook(fs);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public static String Cdriverlocation = prop.getProperty("Cdriverlocation");
 	public static String FdriverLocation = prop.getProperty("FdriverLocation");
-	public static XSSFWorkbook wb;
-	public static String sUsername;
-	public static String sPassword;
+
 
 	@BeforeTest
-//Methos is used to Create a Extend report File and Launch the Browser as per the Requirement
+//Method is used to Create a Extend report File and Launch the Browser as per the Requirement
 	public static void reports() throws FileNotFoundException {
 		report = new ExtentReports(System.getProperty("user.dir") + "\\CampaignPortal.html", true);
 		test = report.startTest("Campaign Portal Cases");

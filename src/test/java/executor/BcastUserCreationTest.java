@@ -1,8 +1,8 @@
 package executor;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.campaign.ui.AdminTabsLoc;
@@ -13,57 +13,27 @@ import utils.GlobalConfig;
 
 public class BcastUserCreationTest extends GlobalConfig {
 	public static boolean b;
-	@BeforeTest
-	public static void deleteExistingUser() throws Exception {
-
-		try {
-			LoginToUserAccountTest.login();
-			new AdminTabsLoc(driver);
-			AdminTabsLoc.usrmgmt.click();
-			new BcastUserCreationLoc(driver);
-			BcastUserCreationLoc.Usrloctn.click();
-			String str = BcastUserCreationLoc.UsrNme.getText();
-			BcastUserCreationLoc.deleteUsr.click();
-			WebDriverWait w = new WebDriverWait(driver, 5);
-			if (str.equals(prop.get("BcastUserName"))) {
-				w.until(ExpectedConditions.visibilityOf(BcastUserCreationLoc.YesToDelte)).click();
-				test.log(LogStatus.PASS, " Draft User Deleted Successfully");
-				Thread.sleep(4000);
-			} else {
-				w.until(ExpectedConditions.visibilityOf(BcastUserCreationLoc.noToDelte)).click();
-				test.log(LogStatus.PASS, " No USer to Delete ");
-			}
-		} catch (Exception e1) {
-			System.out.println("User is Not present to Delete");
-		}
-		Thread.sleep(2000);
-	}
-
+	
 	@Test
 	public static void bcastUserCreation() throws Exception {
-		/*
-		 * LoginToUserAccountTest.login(); new AdminTabsLoc(driver);
-		 * AdminTabsLoc.usrmgmt.click();
-		 */
+		LoginToUserAccountTest.login();
+		new AdminTabsLoc(driver);
+		AdminTabsLoc.usrmgmt.click();
+		Thread.sleep(2000);
 		new BcastUserCreationLoc(driver);
-		WebDriverWait w = new WebDriverWait(driver, 10);
-		w.until(ExpectedConditions.visibilityOf(BcastUserCreationLoc.addBtn)).click();
 		// User Details page
+		XSSFSheet sh1 = wb.getSheetAt(0);
+		RowNum = sh1.getPhysicalNumberOfRows();
 		try {
+			for (int i = 0; i <= RowNum - 1; i++) {
+				WebDriverWait w = new WebDriverWait(driver, 10);
+				w.until(ExpectedConditions.visibilityOf(BcastUserCreationLoc.addBtn)).click();
+				sUsername = sh1.getRow(i).getCell(0).getStringCellValue();
 			BcastUserCreationLoc.clear.click();
-			BcastUserCreationLoc.urnNamefld.sendKeys(prop.getProperty("BcastUserName"));
-			BcastUserCreationLoc.contactNo.sendKeys(prop.getProperty("ContactNo"));
-			BcastUserCreationLoc.emailId.sendKeys(prop.getProperty("Email_id"));
-			boolean b = BcastUserCreationLoc.nxtpage.isEnabled();
-			if (b == true) {
-				test.log(LogStatus.PASS, "User Details Section Filled Successfully");
-				BcastUserCreationLoc.nxtpage.click();
-			} else {
-				test.log(LogStatus.FAIL, "User Details is not Filled ");
-			}
-		} catch (Exception e) {
-			System.out.println("Details is not Valid");
-		}
+			BcastUserCreationLoc.urnNamefld.sendKeys(sUsername);
+			BcastUserCreationLoc.contactNo.sendKeys(prop.getProperty("ContactNo")+i);
+			BcastUserCreationLoc.emailId.sendKeys(sUsername+i+"@gmail.com");
+			BcastUserCreationLoc.nxtpage.click();
 		// Account Details page
 		Thread.sleep(2000);
 		BcastUserCreationLoc.accStartValiditiy.click();
@@ -83,15 +53,15 @@ public class BcastUserCreationTest extends GlobalConfig {
 		//BcastUserCreationLoc.selSMSC.click();
 		BcastUserCreationLoc.tps.clear();
 		BcastUserCreationLoc.tps.sendKeys(prop.getProperty("TPS"));
-		BcastUserCreationLoc.floodEnableDisable.click();
-		 b=BcastUserCreationLoc.destAll.isSelected();
-		 if(b==true) {
-			 System.out.println("All Dest Selected");
-		 }
-		 b=BcastUserCreationLoc.sidAll.isSelected();
-		 if(b==true) {
-			 System.out.println("All SID Selected");
-		 }
-		
+		//BcastUserCreationLoc.floodEnableDisable.click();
+		  BcastUserCreationLoc.nxtpage.click();
+		 Thread.sleep(2000);
+		 BcastUserCreationLoc.saveUsr.click();
+		 Thread.sleep(5000);
+			test.log(LogStatus.PASS, sUsername + " User Created Successfully");
+			}
+			}catch (Exception e) {
+				test.log(LogStatus.FAIL, "Bcast user Creation Test Case Failed ");
+		}
 	}
 }

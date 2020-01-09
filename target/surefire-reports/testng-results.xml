@@ -1,21 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="1" total="2" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="672743" started-at="2020-01-06T11:53:23Z" finished-at="2020-01-06T12:04:36Z">
+  <suite name="Surefire suite" duration-ms="242989" started-at="2020-01-09T06:10:43Z" finished-at="2020-01-09T06:14:46Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="672743" started-at="2020-01-06T11:53:23Z" finished-at="2020-01-06T12:04:36Z">
+    <test name="Surefire test" duration-ms="242989" started-at="2020-01-09T06:10:43Z" finished-at="2020-01-09T06:14:46Z">
       <class name="executor.CampaignCreationTest">
-        <test-method status="PASS" signature="reports()[pri:0, instance:executor.CampaignCreationTest@90f6bfd]" name="reports" is-config="true" duration-ms="5778" started-at="2020-01-06T11:53:23Z" finished-at="2020-01-06T11:53:29Z">
+        <test-method status="PASS" signature="reports()[pri:0, instance:executor.CampaignCreationTest@5b8dfcc1]" name="reports" is-config="true" duration-ms="6993" started-at="2020-01-09T06:10:43Z" finished-at="2020-01-09T06:10:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reports -->
-        <test-method status="FAIL" signature="schCampaignCreation()[pri:2, instance:executor.CampaignCreationTest@90f6bfd]" name="schCampaignCreation" duration-ms="663710" started-at="2020-01-06T11:53:29Z" finished-at="2020-01-06T12:04:33Z">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="PASS" signature="instCampaignCreation()[pri:1, instance:executor.CampaignCreationTest@5b8dfcc1]" name="instCampaignCreation" duration-ms="232497" started-at="2020-01-09T06:10:50Z" finished-at="2020-01-09T06:14:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- instCampaignCreation -->
+        <test-method status="FAIL" signature="schCampaignCreation()[pri:2, instance:executor.CampaignCreationTest@5b8dfcc1]" name="schCampaignCreation" duration-ms="247" started-at="2020-01-09T06:14:42Z" finished-at="2020-01-09T06:14:42Z">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=79.0.3945.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'TDBLR-LTP-XX1', ip: '169.254.121.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.88, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\santosh\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:52632}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 17271ef3602d4179bb7c9ff6b3911e23
+*** Element info: {Using=xpath, value=//input[@type="submit"]}]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at executor.CampaignCreationTest.schCampaignCreation(CampaignCreationTest.java:70)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=79.0.3945.88)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'TDBLR-LTP-XX1', ip: '169.254.121.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.88, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\santosh\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:52632}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 17271ef3602d4179bb7c9ff6b3911e23
+*** Element info: {Using=xpath, value=//input[@type="submit"]}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy7.click(Unknown Source)
+at executor.CampaignCreationTest.schCampaignCreation(CampaignCreationTest.java:69)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -48,11 +88,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- schCampaignCreation -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:executor.CampaignCreationTest@90f6bfd]" name="closeBrowser" is-config="true" duration-ms="3205" started-at="2020-01-06T12:04:33Z" finished-at="2020-01-06T12:04:36Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:executor.CampaignCreationTest@5b8dfcc1]" name="closeBrowser" is-config="true" duration-ms="3193" started-at="2020-01-09T06:14:42Z" finished-at="2020-01-09T06:14:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

@@ -140,4 +140,7 @@ public class BcastUserCreationLoc extends GlobalConfig {
 
 	@FindBy(xpath = "(//div[@class=\"detail-answer\"]/div/ui-switch/span/small)[3]")
 	public static WebElement ftpEnableDisable;
+
+	@FindBy(xpath = "//button[contains(text(),'Save')]")
+	public static WebElement saveUsr;
 }

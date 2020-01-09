@@ -14,37 +14,43 @@ public class VerifyAdminLoginTest extends GlobalConfig {
 
 	public static SoftAssert softAssert = new SoftAssert();
 
-
 	@Test
 	public static void loginUsr() throws Exception {
-
-		String str = driver.getTitle();
-		new LoginLogoutLoc(driver);
-		LoginLogoutLoc.UserName.sendKeys(prop.getProperty("UserName"));
-		LoginLogoutLoc.Password.sendKeys(prop.getProperty("Password"));
-		LoginLogoutLoc.Login.click();
-		softAssert.assertEquals(str, prop.getProperty("Title"));
-		test.log(LogStatus.PASS, "Title verified Successfully");
-		String profile = LoginLogoutLoc.profile.getText();
-		softAssert.assertEquals(profile, prop.getProperty("UserType"));
-		test.log(LogStatus.PASS, "Admin Login Successfully");
-		softAssert.assertAll();
+		try {
+			String str = driver.getTitle();
+			new LoginLogoutLoc(driver);
+			LoginLogoutLoc.UserName.sendKeys(prop.getProperty("UserName"));
+			LoginLogoutLoc.Password.sendKeys(prop.getProperty("Password"));
+			LoginLogoutLoc.Login.click();
+			softAssert.assertEquals(str, prop.getProperty("Title"));
+			test.log(LogStatus.PASS, "Title verified Successfully");
+			String profile = LoginLogoutLoc.profile.getText();
+			softAssert.assertEquals(profile, prop.getProperty("UserType"));
+			test.log(LogStatus.PASS, "Admin Login Successfully");
+			softAssert.assertAll();
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Title TestCase Failed");
+		}
 	}
 
 	@Test
 	public static void logout() throws InterruptedException {
-		new LoginLogoutLoc(driver);		
-		WebDriverWait w = new WebDriverWait(driver, 10);
-		w.until(ExpectedConditions.visibilityOf(LoginLogoutLoc.profile)).click();
-		LoginLogoutLoc.logout.click();
+		new LoginLogoutLoc(driver);
+		try {
+			WebDriverWait w = new WebDriverWait(driver, 10);
+			w.until(ExpectedConditions.visibilityOf(LoginLogoutLoc.profile)).click();
+			LoginLogoutLoc.logout.click();
 
-		if (prop.getProperty("Logout").equals("1")) {
-			WebDriverWait w1 = new WebDriverWait(driver, 5);
-			w1.until(ExpectedConditions.visibilityOf(LoginLogoutLoc.loggedout)).click();
-			test.log(LogStatus.PASS, "Admin Logged out verified Successfully");
-		} else {
-			LoginLogoutLoc.escape.click();
-			test.log(LogStatus.PASS, "Admin logout discard  Successfully");
+			if (prop.getProperty("Logout").equals("1")) {
+				WebDriverWait w1 = new WebDriverWait(driver, 5);
+				w1.until(ExpectedConditions.visibilityOf(LoginLogoutLoc.loggedout)).click();
+				test.log(LogStatus.PASS, "Admin Logged out verified Successfully");
+			} else {
+				LoginLogoutLoc.escape.click();
+				test.log(LogStatus.PASS, "Admin logout discard  Successfully");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Logout TestCase Failed");
 		}
 
 	}
